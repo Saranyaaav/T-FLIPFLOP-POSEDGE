@@ -28,12 +28,39 @@ From the above characteristic table, we can directly write the next state equati
 
 **Procedure**
 
-/* write all the steps invloved */
+1.Define Module: Define a Verilog module for the T flip-flop with inputs (T, CLK) and outputs (Q, Q_bar).
+
+2.Declare Inputs and Outputs: Declare input and output ports for the module.
+
+3.Implement Flip-Flop Logic: Write Verilog code to implement the T flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
+
+4.Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the T flip-flop under different input conditions.
+
+5.Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (T, CLK) to cover all possible input states.
+
+6.Verify Output Behavior: Verify that the output behavior of the T flip-flop matches the expected behavior defined by its functional table.
+
+7.Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+Developed by : SARANYA V , RegisterNumber : 212223040188
+
+```
+module t_flipflop(t,clk,rst,q);
+  input t, clk, rst;
+  output reg q;
+  always @(posedge clk or posedge rst) 
+begin
+    if (rst)
+      q <= 0; 
+    else if (t==0)
+      q <= q; 
+     else
+        q<=~q;
+  end
+endmodule
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
 ![Screenshot 2024-11-06 113756](https://github.com/user-attachments/assets/52a3d68d-5572-418c-9b62-8fa00b5daf22)
@@ -43,3 +70,5 @@ From the above characteristic table, we can directly write the next state equati
 ![Screenshot 2024-11-06 114742](https://github.com/user-attachments/assets/e10b5c0f-1895-44a6-bb2e-9687327bb4b7)
 
 **RESULTS**
+
+Hence, T flipflop using verilog and validating their functionality using their functional tables is implemented.
